@@ -117,7 +117,7 @@ public class PantallaPrincipal extends JFrame {
         ActionListener salida = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setDefaultCloseOperation(EXIT_ON_CLOSE);
+                System.exit(0);
             }
         };
         bsalir.addActionListener(salida);
