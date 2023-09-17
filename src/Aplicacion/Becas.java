@@ -25,29 +25,45 @@ public class Becas extends JFrame{
         cajaBecas();
         salida();
         textoBecas();
+        botonSalida();
     }
 
     private void textoBecas(){
         JLabel textoBeca = new JLabel() ;
-        textoBeca.setBounds(50,70,200,20);
+        textoBeca.setBounds(200,70,200,25);
         textoBeca.setText("Ingrese el numero de estudiantes");
         panelBeca.add(textoBeca);
     }
     private void cajaBecas(){
         cajaBeca=new JTextField();
-        cajaBeca.setBounds(50,100,50,15);
+        cajaBeca.setBounds(150,100,70,25);
         panelBeca.add(cajaBeca);
     }
 
     private void salida(){
         areaSal = new JTextArea();
-        areaSal.setBounds(50,200,300,200);
+        areaSal.setBounds(100,180,400,200);
         panelBeca.add(areaSal);
+    }
+
+    private void botonSalida(){
+        JButton botonSalida = new JButton();
+        botonSalida.setText("Volver");
+        botonSalida.setBounds(260,420,80,30);
+        panelBeca.add(botonSalida);
+
+        ActionListener volver = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+                pantallaPrincipal.setVisible(true);
+            }
+        };botonSalida.addActionListener(volver);
     }
     private void botonBecas(){
         JButton botonBeca = new JButton();
         botonBeca.setText("calcular");
-        botonBeca.setBounds(200,100,100,15);
+        botonBeca.setBounds(300,100,100,30);
         panelBeca.add(botonBeca);
 
 
@@ -71,14 +87,14 @@ public class Becas extends JFrame{
         int contDesc = 0;
 
         for (int i = 0; i < cant; i++) {
-            String promedio = JOptionPane.showInputDialog(null, "promedio estudiante");
+            String promedio = JOptionPane.showInputDialog(null, "Promedio del estudiante entre 0 y 50");
             int prom = Integer.parseInt(promedio);
             if (prom <0 || prom>50){
                 JOptionPane.showMessageDialog(null,"El valor del promedio debe estar entre cero y 50");
                 break;
             }
-            String deporte = JOptionPane.showInputDialog(null, "hace deporte");
-            String matricula= JOptionPane.showInputDialog(null,"valor de la matricula");
+            String deporte = JOptionPane.showInputDialog(null, "¿Practica algun deporte?");
+            String matricula= JOptionPane.showInputDialog(null,"Valor de la matrícula");
 
 
             boolean y= descuento(prom, deporte,matricula);
@@ -89,7 +105,8 @@ public class Becas extends JFrame{
             matriDesc=matriDesc + (matri/2);
             contDesc++;
             }
-            areaSal.setText(" contDesc: "+contDesc+" valorMatri: "+valorMatri+" matriDesc: "+matriDesc);
+            areaSal.setText(" \nLa cantidad de descuentos aplicados han sido: "+contDesc+" \n El valor total de las matriculas sin descuento es: "
+                    +valorMatri+"\n El valor total de los descuentos aplicados en matriculas es: "+matriDesc);
 
         }
     }
