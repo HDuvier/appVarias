@@ -150,20 +150,17 @@ public class Parqueadero extends JFrame {
         bCalculo.setBounds(300,240,210,15);
         panelParqueadero.add(bCalculo);
 
-        ActionListener calcular = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int hourA = Integer.parseInt(horaEntrada.getText());
-                int minA = Integer.parseInt(minEntrada.getText());
-                int hourB = Integer.parseInt(horaSalida.getText());
-                int minB = Integer.parseInt(minSalida.getText());
+        ActionListener calcular = e -> {
+            int hourA = Integer.parseInt(horaEntrada.getText());
+            int minA = Integer.parseInt(minEntrada.getText());
+            int hourB = Integer.parseInt(horaSalida.getText());
+            int minB = Integer.parseInt(minSalida.getText());
 
-                ArrayList tiempos = new ArrayList<>(inputs(hourA,minA,hourB,minB));
-                int valor = valores(inputs(hourA,minA,hourB,minB));
+            ArrayList tiempos = new ArrayList<>(inputs(hourA,minA,hourB,minB));
+            int valor = valores(inputs(hourA,minA,hourB,minB));
 
-                areaSalida.append(" nombre: "+ nombre.getText()+ "\n placa: "+placa.getText()+"\n marca: "+Marca.getText()+
-                        "\n valor total: "+ valor+"\n tiempo: "+tiempos.get(0)+":"+tiempos.get(1));
-            }
+            areaSalida.append(" nombre: "+ nombre.getText()+ "\n placa: "+placa.getText()+"\n marca: "+Marca.getText()+
+                    "\n valor total: "+ valor+"\n tiempo: "+tiempos.get(0)+":"+tiempos.get(1));
         };
         bCalculo.addActionListener(calcular);
 

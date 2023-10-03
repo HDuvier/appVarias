@@ -52,12 +52,9 @@ public class Becas extends JFrame{
         botonSalida.setBounds(260,420,80,30);
         panelBeca.add(botonSalida);
 
-        ActionListener volver = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
-                pantallaPrincipal.setVisible(true);
-            }
+        ActionListener volver = e -> {
+            PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+            pantallaPrincipal.setVisible(true);
         };botonSalida.addActionListener(volver);
     }
     private void botonBecas(){
@@ -67,14 +64,11 @@ public class Becas extends JFrame{
         panelBeca.add(botonBeca);
 
 
-        ActionListener calcular = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int contador=0;
-                String cant = cajaBeca.getText();
-                boton(cant , contador);
+        ActionListener calcular = e -> {
+            int contador=0;
+            String cant = cajaBeca.getText();
+            boton(cant , contador);
 
-            }
         };botonBeca.addActionListener(calcular);
     }
 

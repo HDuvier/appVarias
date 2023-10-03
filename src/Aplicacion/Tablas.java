@@ -49,17 +49,14 @@ public class Tablas extends JFrame{
         tabla2.setBounds(100,150,150,20);
         panelTablas.add(tabla2);
 
-        ActionListener tablade2 = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int number =2;
-                ArrayList result = new ArrayList<>(multiplicar(number));
-                JOptionPane.showMessageDialog(null,("tabla del "+number+"\n"+number+" * 0= "+result.get(0))+
-                        "\n"+number+" * 1= "+result.get(1)+"\n"+number+" * 2= "+result.get(2)+"\n"+number+" * 3= "+result.get(3)+
-                        "\n"+number+" * 4= "+result.get(4)+"\n"+number+" * 5= "+result.get(5)+"\n"+number+" * 6= "+result.get(6)
-                        +"\n"+number+" * 7= "+result.get(7)+"\n"+number+" * 8= "+result.get(8)+"\n"+number+" * 9= "+result.get(9)+
-                        "\n"+number+" * 10= "+result.get(10));
-            }
+        ActionListener tablade2 = e -> {
+            int number =2;
+            ArrayList result = new ArrayList<>(multiplicar(number));
+            JOptionPane.showMessageDialog(null,("tabla del "+number+"\n"+number+" * 0= "+result.get(0))+
+                    "\n"+number+" * 1= "+result.get(1)+"\n"+number+" * 2= "+result.get(2)+"\n"+number+" * 3= "+result.get(3)+
+                    "\n"+number+" * 4= "+result.get(4)+"\n"+number+" * 5= "+result.get(5)+"\n"+number+" * 6= "+result.get(6)
+                    +"\n"+number+" * 7= "+result.get(7)+"\n"+number+" * 8= "+result.get(8)+"\n"+number+" * 9= "+result.get(9)+
+                    "\n"+number+" * 10= "+result.get(10));
         };
         tabla2.addActionListener(tablade2);
     }

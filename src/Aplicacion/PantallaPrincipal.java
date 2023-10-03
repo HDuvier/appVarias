@@ -47,12 +47,9 @@ public class PantallaPrincipal extends JFrame {
 
 
 
-        ActionListener abrirParque = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Parqueadero parquea =new Parqueadero();
-                parquea.setVisible(true);
-            }
+        ActionListener abrirParque = e -> {
+            Parqueadero parquea =new Parqueadero();
+            parquea.setVisible(true);
         };
         bparqueadero.addActionListener(abrirParque);
 
@@ -63,12 +60,9 @@ public class PantallaPrincipal extends JFrame {
         bBecas.setBounds(70,60,130,15);
         panel1.add(bBecas);
 
-        ActionListener abrirBeca = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Becas beca=new Becas();
-                beca.setVisible(true);
-            }
+        ActionListener abrirBeca = e -> {
+            Becas beca=new Becas();
+            beca.setVisible(true);
         };
         bBecas.addActionListener(abrirBeca);
 
@@ -81,12 +75,9 @@ public class PantallaPrincipal extends JFrame {
         bTablas.setBounds(50,160,200,15);
         panel1.add(bTablas);
 
-        ActionListener abrirTablas = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-               Tablas tabla= new Tablas();
-               tabla.setVisible(true);
-            }
+        ActionListener abrirTablas = e -> {
+           Tablas tabla= new Tablas();
+           tabla.setVisible(true);
         };
         bTablas.addActionListener(abrirTablas);
 
@@ -97,12 +88,9 @@ public class PantallaPrincipal extends JFrame {
         bsuper.setText("SUPERMERCADO");
         bsuper.setBounds(350,160,150,15);
         panel1.add(bsuper);
-        ActionListener abrirSuper = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Supermercado superme= new Supermercado();
-                superme.setVisible(true);
-            }
+        ActionListener abrirSuper = e -> {
+            Supermercado superme= new Supermercado();
+            superme.setVisible(true);
         };
         bsuper.addActionListener(abrirSuper);
 
@@ -114,12 +102,7 @@ public class PantallaPrincipal extends JFrame {
         bsalir.setBounds(150,260,110,15);
         panel1.add(bsalir);
 
-        ActionListener salida = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        };
+        ActionListener salida = e -> System.exit(0);
         bsalir.addActionListener(salida);
 
     }

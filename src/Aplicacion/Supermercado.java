@@ -88,12 +88,9 @@ public class Supermercado extends JFrame {
         botonPantalla.setText("PANTALLA PRINCIPAL");
         panelSup.add(botonPantalla);
 
-        ActionListener principal = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
-                pantallaPrincipal.setVisible(true);
-            }
+        ActionListener principal = e -> {
+            PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+            pantallaPrincipal.setVisible(true);
         };botonPantalla.addActionListener(principal);
     }
 
@@ -103,27 +100,24 @@ public class Supermercado extends JFrame {
         botonSuper.setText("calcular oferta");
         panelSup.add(botonSuper);
 
-        ActionListener oferta = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int cantidad = Integer.parseInt(cajaCant.getText());
-                double cantDoc = esDocena(cantidad);
-                double unidAd = cantDoc/3;
-                int valor = Integer.parseInt(cajaValue.getText());
+        ActionListener oferta = e -> {
+            int cantidad = Integer.parseInt(cajaCant.getText());
+            double cantDoc = esDocena(cantidad);
+            double unidAd = cantDoc/3;
+            int valor = Integer.parseInt(cajaValue.getText());
 //si la cantDoc es mayor a 1 tiene el 10% de descuento y por cada 3 docenas recibe un producto adicional
-                if (unidAd<1){
-                    double total = valor*cantidad;
-                    areaSal.setText("no tiene unidades adicionales\n total de la compra"+total+"\ntotal a pagar"+(total-(total*0.1))
-                            +"\ntotal descuento: "+(total-(total*0.9)));
+            if (unidAd<1){
+                double total = valor*cantidad;
+                areaSal.setText("no tiene unidades adicionales\n total de la compra"+total+"\ntotal a pagar"+(total-(total*0.1))
+                        +"\ntotal descuento: "+(total-(total*0.9)));
 
-                } else if (unidAd>=1) {
-                    double total = valor *cantidad;
-                    areaSal.setText("tiene"+unidAd+"unidades adicionales\n total de la compra: "+ total+"\ntotal a pagar: "+(total-(total*0.1))
-                            +"\ntotal descuento: "+(total-(total*0.9)));
-                }
-
-
+            } else if (unidAd>=1) {
+                double total = valor *cantidad;
+                areaSal.setText("tiene"+unidAd+"unidades adicionales\n total de la compra: "+ total+"\ntotal a pagar: "+(total-(total*0.1))
+                        +"\ntotal descuento: "+(total-(total*0.9)));
             }
+
+
         };botonSuper.addActionListener(oferta);
 
 
