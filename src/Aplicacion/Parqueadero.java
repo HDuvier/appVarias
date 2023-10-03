@@ -147,7 +147,7 @@ public class Parqueadero extends JFrame {
     private void calcular(){
         JButton bCalculo = new JButton();
         bCalculo.setText("CALCULAR VALOR");
-        bCalculo.setBounds(300,240,110,15);
+        bCalculo.setBounds(300,240,210,15);
         panelParqueadero.add(bCalculo);
 
         ActionListener calcular = new ActionListener() {

@@ -25,10 +25,13 @@ public class Supermercado extends JFrame {
         this.getContentPane().add(panelSup);
         cajaValor();
         cajaCantidad();
+        encabezado();
+        encabezado2();
         textoCant();
         textoValor();
         botonSup();
         salidaText();
+        pantallaPrincipal();
     }
     private void cajaValor(){
         cajaValue = new JTextField();
@@ -56,6 +59,19 @@ public class Supermercado extends JFrame {
         panelSup.add(textoCan);
     }
 
+    private void encabezado(){
+        JLabel encabezados = new JLabel();
+        encabezados.setBounds(100,45,350,15);
+        encabezados.setText("AL COMPRAR UNA DOCENA RECIBE EL 10% DE DESCUENTO");
+        panelSup.add(encabezados);
+    }
+    private void encabezado2(){
+        JLabel encabezado = new JLabel();
+        encabezado.setBounds(100,70,350,15);
+        encabezado.setText("AL COMPRAR 3 DOCENAS RECIBE UNA UNIDAD GRATIS");
+        panelSup.add(encabezado);
+    }
+
     private void salidaText(){
         areaSal = new JTextArea();
         areaSal.setBounds(100,210,300,100);
@@ -64,6 +80,21 @@ public class Supermercado extends JFrame {
     private double esDocena(int cantidad){
         double docenas = cantidad/12;
         return docenas;
+    }
+
+    private void pantallaPrincipal(){
+        JButton botonPantalla = new JButton();
+        botonPantalla.setBounds(150,380,300,30);
+        botonPantalla.setText("PANTALLA PRINCIPAL");
+        panelSup.add(botonPantalla);
+
+        ActionListener principal = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+                pantallaPrincipal.setVisible(true);
+            }
+        };botonPantalla.addActionListener(principal);
     }
 
     private void botonSup(){
@@ -79,7 +110,7 @@ public class Supermercado extends JFrame {
                 double cantDoc = esDocena(cantidad);
                 double unidAd = cantDoc/3;
                 int valor = Integer.parseInt(cajaValue.getText());
-
+//si la cantDoc es mayor a 1 tiene el 10% de descuento y por cada 3 docenas recibe un producto adicional
                 if (unidAd<1){
                     double total = valor*cantidad;
                     areaSal.setText("no tiene unidades adicionales\n total de la compra"+total+"\ntotal a pagar"+(total-(total*0.1))
