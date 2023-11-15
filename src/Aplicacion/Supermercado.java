@@ -108,12 +108,12 @@ public class Supermercado extends JFrame {
 //si la cantDoc es mayor a 1 tiene el 10% de descuento y por cada 3 docenas recibe un producto adicional
             if (unidAd<1){
                 double total = valor*cantidad;
-                areaSal.setText("no tiene unidades adicionales\n total de la compra"+total+"\ntotal a pagar"+(total-(total*0.1))
+                areaSal.setText("no tiene unidades adicionales\n total de la compra: "+total+"\ntotal a pagar: "+(total-(total*0.1))
                         +"\ntotal descuento: "+(total-(total*0.9)));
 
             } else if (unidAd>=1) {
                 double total = valor *cantidad;
-                areaSal.setText("tiene"+unidAd+"unidades adicionales\n total de la compra: "+ total+"\ntotal a pagar: "+(total-(total*0.1))
+                areaSal.setText("tiene "+unidAd+" unidades adicionales\n total de la compra: "+ total+"\ntotal a pagar: "+(total-(total*0.1))
                         +"\ntotal descuento: "+(total-(total*0.9)));
             }
 

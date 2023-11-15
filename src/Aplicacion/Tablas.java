@@ -149,7 +149,7 @@ public class Tablas extends JFrame{
                 }
             }
 
-        }System.out.println(result);
+        }
         return result;
 
     }
